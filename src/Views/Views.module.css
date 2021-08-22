@@ -1,0 +1,61 @@
+.homePage,
+.moviesPage,
+.cast {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.homePageFilms {
+  margin: 20px;
+}
+
+li {
+  list-style: none;
+}
+
+.film {
+  display: flex;
+}
+
+.filmDetails {
+  display: block;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.button {
+  margin: 20px;
+  color: rgb(22, 87, 44);
+  background-color: rgb(239, 248, 238);
+  border-radius: 4px;
+}
+
+.container {
+  width: 1200px;
+  height: auto;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.moviesInput {
+  margin-left: 40px;
+}
+
+.title {
+  margin: 5px;
+  width: 160px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  text-align: center;
+}
+
+.filmsGenres {
+  display: block;
+  padding: 0;
+  color: rgb(22, 87, 44);
+}
