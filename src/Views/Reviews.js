@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import styles from "./Views.module.css";
 import * as Api from "../Services/Api";
 
 export default function Reviews() {

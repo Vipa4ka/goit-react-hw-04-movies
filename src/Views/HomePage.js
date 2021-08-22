@@ -2,17 +2,14 @@ import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import * as Api from "../Services/Api";
 import styles from "./Views.module.css";
+import avatar from "./avatar.png";
 
 export default function HomePage() {
   const [films, setFilms] = useState([]);
   const { pathname } = useLocation();
 
   useEffect(() => {
-    Api.fetchPopularFilms()
-      .then(({ results }) => {
-        setFilms(results);
-      })
-      .catch((error) => console.log(error));
+    Api.fetchPopularFilms().then((data) => setFilms(data.results));
   }, []);
 
   return (
@@ -23,6 +20,25 @@ export default function HomePage() {
           {films.map((film) => (
             <li className={styles.homePageFilms} key={film.id}>
               <Link
+                to={{
+                  pathname: `Movies/${film.id}`,
+                  state: {
+                    backUrl: pathname,
+                  },
+                }}
+              >
+                {film.poster_path ? (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w300${film.poster_path}`}
+                    alt={film.title ?? film.name}
+                  />
+                ) : (
+                  <img src={avatar} alt={film.title ?? film.name} />
+                )}
+                <p>{film.title ?? film.name}</p>
+                {/* <p>Character: {film.character}</p> */}
+
+                {/* <Link
                 to={{
                   pathname: `Movies/${film.id}`,
                   state: {
@@ -41,6 +57,7 @@ export default function HomePage() {
                   height="250px"
                 />
                 <p>{film.title ?? film.name}</p>
+              </Link> */}
               </Link>
             </li>
           ))}
