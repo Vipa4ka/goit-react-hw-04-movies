@@ -3,6 +3,7 @@ import { useParams, useLocation, useHistory } from "react-router-dom";
 import { Link, Route, useRouteMatch } from "react-router-dom";
 import * as Api from "../Services/Api";
 import styles from "./Views.module.css";
+import avatar from "./avatar.png";
 
 const Cast = lazy(() => import("./Cast"));
 const Reviews = lazy(() => import("./Reviews"));
@@ -35,9 +36,9 @@ export default function MovieDetailsPage() {
             <img
               className={styles.filmDetails}
               src={
-                films.poster_path !== null
+                films.poster_path
                   ? `https://image.tmdb.org/t/p/w300/${films.poster_path}`
-                  : "https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+                  : avatar
               }
               alt={films.title}
             />

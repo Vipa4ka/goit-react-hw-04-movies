@@ -4,6 +4,7 @@ import { useHistory, useLocation } from "react-router";
 import qs from "query-string";
 import styles from "./Views.module.css";
 import * as Api from "../Services/Api";
+import avatar from "./avatar.png";
 
 export default function MoviesPage() {
   const [searchs, setSearch] = useState([]);
@@ -59,9 +60,9 @@ export default function MoviesPage() {
               >
                 <img
                   src={
-                    poster_path !== null
+                    poster_path
                       ? `https://image.tmdb.org/t/p/w500${poster_path}`
-                      : "https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+                      : avatar
                   }
                   alt={title ?? name}
                   width="220px"
